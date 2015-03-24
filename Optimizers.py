@@ -8,7 +8,6 @@ from collections import OrderedDict
 
 
 def adadelta(rho_,eps_,cost,params,L1_rate,L2_rate):
-        #if updates is None:
         updates = OrderedDict()
         gparams = [T.grad(cost + L1_rate * param.norm(L=1) + L2_rate * param.norm(L=2) , param) for param in params]
         gparams_mean=[gparam.mean() for gparam in gparam in gparams]
